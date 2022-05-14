@@ -14,6 +14,7 @@ class Input extends React.Component {
           data-testid={ test }
           value={ value }
           onChange={ onInputChange }
+          required="true"
         />
       </label>
     );

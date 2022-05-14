@@ -6,7 +6,7 @@ class Button extends React.Component {
     const { isSaveButtonDisabled, onSaveButtonClick } = this.props;
     return (
       <button
-        type="button"
+        type="submit"
         data-testid="save-button"
         disabled={ isSaveButtonDisabled }
         onClick={ onSaveButtonClick }
