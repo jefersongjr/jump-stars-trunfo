@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 class Card extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo, onInputChange } = this.props;
+      cardImage, cardRare, cardTrunfo } = this.props;
     return (
-      <div onChange={ onInputChange }>
+      <div>
         <p data-testid="name-card">{ cardName }</p>
         <img data-testid="image-card" src={ cardImage } alt={ cardName } />
         <p data-testid="description-card">{ cardDescription }</p>
@@ -29,7 +29,6 @@ Card.propTypes = {
   cardAttr3: PropTypes.number.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  onInputChange: PropTypes.func.isRequired,
 };
 
 export default Card;
