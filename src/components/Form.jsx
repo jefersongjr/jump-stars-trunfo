@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import Textarea from './Textarea';
 import Select from './Select';
+import Checkbox from './Checkbox';
 import Button from './Button';
 
 class Form extends React.Component {
   render() {
-    const { cardName, cardDescription, cardAttr1, cardAttr2 } = this.props;
-    const { cardAttr3, cardImage, cardTrunfo, cardRare, onInputChange } = this.props;
+    const { cardName, cardDescription, cardAttr1, cardAttr2,
+      cardAttr3, cardImage, cardTrunfo, cardRare, onInputChange,
+      isSaveButtonDisabled, onSaveButtonClick } = this.props;
     return (
       <section className="section-form">
         <form>
@@ -76,19 +78,19 @@ class Form extends React.Component {
             onInputChange={ onInputChange }
           />
 
-          <Input
+          <Checkbox
             type="checkbox"
             label="Super Trybe Trunfo"
             id="super-trunfo"
             name="cardTrunfo"
             test="trunfo-input"
-            value={ cardTrunfo }
+            checked={ cardTrunfo }
             onInputChange={ onInputChange }
 
           />
           <Button
-            isSaveButtonDisabled={ false }
-            onSaveButtonClick={ () => 'ola' }
+            isSaveButtonDisabled={ isSaveButtonDisabled }
+            onSaveButtonClick={ onSaveButtonClick }
           />
         </form>
       </section>
@@ -100,12 +102,14 @@ Form.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
+  cardRare: PropTypes.string.isRequired,
+  isSaveButtonDisabled: PropTypes.string.isRequired,
   cardAttr1: PropTypes.number.isRequired,
   cardAttr2: PropTypes.number.isRequired,
   cardAttr3: PropTypes.number.isRequired,
-  cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
+  onSaveButtonClick: PropTypes.func.isRequired,
 };
 
 export default Form;
