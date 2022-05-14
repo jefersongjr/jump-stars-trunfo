@@ -60,7 +60,7 @@ class Form extends React.Component {
              type="number"
              label="Attr2"
              name="cardAttr2"
-             test="attr1-input"
+             test="attr2-input"
              value={ cardAttr2 }
              onInputChange={ onInputChange }
            />
@@ -69,7 +69,7 @@ class Form extends React.Component {
              type="number"
              label="Attr3"
              name="cardAttr3"
-             test="attr1-input"
+             test="attr3-input"
              value={ cardAttr3 }
              onInputChange={ onInputChange }
            />
@@ -105,14 +105,7 @@ class Form extends React.Component {
            />
          </form>
          <Card
-           cardName={ cardName }
-           cardDescription={ cardDescription }
-           cardAttr1={ cardAttr1 }
-           cardAttr2={ cardAttr2 }
-           cardAttr3={ cardAttr3 }
-           cardImage={ cardImage }
-           cardTrunfo={ cardTrunfo }
-           cardRare={ cardRare }
+           onInputChange={ onInputChange }
          />
        </section>
      );
