@@ -15,5 +15,8 @@ code {
 label {
   display: flex;
   flex-direction: column;
-  width: 45%;
+}
+
+.section-form {
+  width: 50%;
 }
