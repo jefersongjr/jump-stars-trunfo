@@ -91,6 +91,7 @@ class Form extends React.Component {
           <Button
             isSaveButtonDisabled={ isSaveButtonDisabled }
             onSaveButtonClick={ onSaveButtonClick }
+            name="savedCards"
           />
         </form>
       </section>
