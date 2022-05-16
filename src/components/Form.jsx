@@ -10,7 +10,7 @@ class Form extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardTrunfo, cardRare, onInputChange,
-      isSaveButtonDisabled, onSaveButtonClick } = this.props;
+      isSaveButtonDisabled, onSaveButtonClick, hasTrunfo } = this.props;
     return (
       <section className="section-form">
         <form>
@@ -86,8 +86,9 @@ class Form extends React.Component {
             test="trunfo-input"
             checked={ cardTrunfo }
             onInputChange={ onInputChange }
-
+            hasTrunfo={ hasTrunfo }
           />
+
           <Button
             isSaveButtonDisabled={ isSaveButtonDisabled }
             onSaveButtonClick={ onSaveButtonClick }
@@ -111,6 +112,7 @@ Form.propTypes = {
   cardTrunfo: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
+  hasTrunfo: PropTypes.func.isRequired,
 };
 
 export default Form;

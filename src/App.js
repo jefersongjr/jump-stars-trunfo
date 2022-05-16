@@ -84,18 +84,16 @@ class App extends React.Component {
     });
   };
 
-  hasTrunfo1 = () => {
+  hasTrunfo = () => {
     const { savedCards } = this.state;
-    if (savedCards.find((trunfo) => trunfo.cardTrunfo === true).length > 0) {
-      return true;
-    }
+    savedCards.some((trunfo) => trunfo.cardTrunfo === 'true');
   }
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2 } = this.state;
     const { cardAttr3, cardImage, cardTrunfo, cardRare,
-      isSaveButtonDisabled, savedCards, hasTrunfo1 } = this.state;
-    const { onInputChange, onSaveButtonClick } = this;
+      isSaveButtonDisabled, savedCards } = this.state;
+    const { onInputChange, onSaveButtonClick, hasTrunfo } = this;
     return (
       <section>
         <Form
@@ -110,6 +108,7 @@ class App extends React.Component {
           onInputChange={ onInputChange }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ onSaveButtonClick }
+          hasTrunfo={ hasTrunfo }
           savedCards={ savedCards }
         />
 
@@ -122,8 +121,21 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardTrunfo={ cardTrunfo }
           cardRare={ cardRare }
-          hasTrunfo1={ hasTrunfo1 }
         />
+        <section className="cardDeck">
+          { savedCards.map((card) => (
+            <Card
+              key={ card.cardName }
+              cardName={ card.cardName }
+              cardDescription={ card.cardDescription }
+              cardAttr1={ card.cardAttr1 }
+              cardAttr2={ card.cardAttr2 }
+              cardAttr3={ card.cardAttr3 }
+              cardImage={ card.cardImage }
+              cardTrunfo={ card.cardTrunfo }
+              cardRare={ card.cardRare }
+            />))}
+        </section>
       </section>
     );
   }
