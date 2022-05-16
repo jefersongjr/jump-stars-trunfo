@@ -11,8 +11,8 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardTrunfo: false,
-      cardRare: '',
-      isSaveButtonDisabled: false,
+      cardRare: 'normal',
+      isSaveButtonDisabled: true,
       savedCards: [],
     }
 
@@ -28,9 +28,10 @@ class App extends React.Component {
 
   validateButton = () => {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
-      cardAttr3, cardImage } = this.state;
+      cardAttr3, cardImage, attrSum } = this.state;
     const max = 90;
-    const attrSum = cardAttr1 + cardAttr2 + cardAttr3;
+    const sumAtrrt = parseFloat(cardAttr1) + parseFloat(cardAttr2)
+    + parseFloat(cardAttr3);
     const maxSum = 210;
     if (attrSum > maxSum) {
       this.setState({
@@ -52,6 +53,11 @@ class App extends React.Component {
         isSaveButtonDisabled: true,
       });
     }
+    if (sumAtrrt > maxSum) {
+      this.setState({
+        isSaveButtonDisabled: true,
+      });
+    }
   }
 
   onSaveButtonClick = () => {
@@ -66,12 +72,20 @@ class App extends React.Component {
       cardAttr1,
       cardAttr2 };
     this.setState(savedCards.push(card));
+    console.log(cardAttr1 + cardAttr2 + cardAttr3);
   };
+
+  hasTrunfo1 = () => {
+    const { savedCards } = this.state;
+    if (savedCards.find((trunfo) => trunfo.cardTrunfo === true).length > 0) {
+      return true;
+    }
+  }
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2 } = this.state;
     const { cardAttr3, cardImage, cardTrunfo, cardRare,
-      isSaveButtonDisabled, savedCards } = this.state;
+      isSaveButtonDisabled, savedCards, hasTrunfo1 } = this.state;
     const { onInputChange, onSaveButtonClick } = this;
     return (
       <section>
@@ -99,6 +113,7 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardTrunfo={ cardTrunfo }
           cardRare={ cardRare }
+          hasTrunfo1={ hasTrunfo1 }
         />
       </section>
     );
