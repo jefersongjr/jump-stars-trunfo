@@ -71,8 +71,17 @@ class App extends React.Component {
       cardDescription,
       cardAttr1,
       cardAttr2 };
-    this.setState(savedCards.push(card));
-    console.log(cardAttr1 + cardAttr2 + cardAttr3);
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardTrunfo: false,
+      cardRare: 'normal',
+      savedCards: [...savedCards, card],
+    });
   };
 
   hasTrunfo1 = () => {
