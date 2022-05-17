@@ -13,6 +13,7 @@ class Textarea extends React.Component {
           value={ value }
           cols="30"
           rows="10"
+          className="Input"
           data-testid={ test }
           onChange={ onInputChange }
         />

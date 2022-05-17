@@ -89,32 +89,35 @@ class App extends React.Component {
       isSaveButtonDisabled, savedCards } = this.state;
     const { onInputChange, onSaveButtonClick } = this;
     return (
-      <section className="createCardSection">
-        <Form
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardTrunfo={ cardTrunfo }
-          cardRare={ cardRare }
-          onInputChange={ onInputChange }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
-          onSaveButtonClick={ onSaveButtonClick }
-          savedCards={ savedCards }
-        />
-
-        <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardTrunfo={ cardTrunfo }
-          cardRare={ cardRare }
-        />
+      <div>
+        <section className="createCardSection">
+          <Form
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardTrunfo={ cardTrunfo }
+            cardRare={ cardRare }
+            onInputChange={ onInputChange }
+            isSaveButtonDisabled={ isSaveButtonDisabled }
+            onSaveButtonClick={ onSaveButtonClick }
+            savedCards={ savedCards }
+          />
+          <section className="previewCard">
+            <Card
+              cardName={ cardName }
+              cardDescription={ cardDescription }
+              cardAttr1={ cardAttr1 }
+              cardAttr2={ cardAttr2 }
+              cardAttr3={ cardAttr3 }
+              cardImage={ cardImage }
+              cardTrunfo={ cardTrunfo }
+              cardRare={ cardRare }
+            />
+          </section>
+        </section>
 
         <section className="cardDeck">
           { savedCards.map((card) => (
@@ -130,7 +133,7 @@ class App extends React.Component {
               cardRare={ card.cardRare }
             />))}
         </section>
-      </section>
+      </div>
     );
   }
 }

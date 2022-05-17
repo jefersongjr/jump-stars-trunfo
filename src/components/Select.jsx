@@ -11,6 +11,7 @@ class Select extends React.Component {
           id={ name }
           data-testid={ test }
           value={ value }
+          className="Input"
           onChange={ onInputChange }
         >
           <option> normal </option>

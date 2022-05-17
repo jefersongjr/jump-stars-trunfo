@@ -31,41 +31,42 @@ class Form extends React.Component {
             value={ cardDescription }
             onInputChange={ onInputChange }
           />
+          <div className="attr-section">
+            <Input
+              type="number"
+              label="Attr1"
+              name="cardAttr1"
+              id="attr1-id"
+              test="attr1-input"
+              value={ cardAttr1 }
+              onInputChange={ onInputChange }
+            />
 
-          <Input
-            type="number"
-            label="Attr1"
-            name="cardAttr1"
-            id="attr1-id"
-            test="attr1-input"
-            value={ cardAttr1 }
-            onInputChange={ onInputChange }
-          />
+            <Input
+              type="number"
+              label="Attr2"
+              name="cardAttr2"
+              id="attr2-id"
+              test="attr2-input"
+              value={ cardAttr2 }
+              onInputChange={ onInputChange }
+            />
 
-          <Input
-            type="number"
-            label="Attr2"
-            name="cardAttr2"
-            id="attr2-id"
-            test="attr2-input"
-            value={ cardAttr2 }
-            onInputChange={ onInputChange }
-          />
-
-          <Input
-            type="number"
-            label="Attr3"
-            name="cardAttr3"
-            id="attr3-id"
-            test="attr3-input"
-            value={ cardAttr3 }
-            onInputChange={ onInputChange }
-          />
-
+            <Input
+              type="number"
+              label="Attr3"
+              name="cardAttr3"
+              id="attr3-id"
+              test="attr3-input"
+              value={ cardAttr3 }
+              onInputChange={ onInputChange }
+            />
+          </div>
           <Input
             type="text"
             label="Imagem"
             name="cardImage"
+            id="image-id"
             test="image-input"
             value={ cardImage }
             onInputChange={ onInputChange }

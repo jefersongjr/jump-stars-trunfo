@@ -13,6 +13,7 @@ class Input extends React.Component {
           id={ id }
           data-testid={ test }
           value={ value }
+          className="Input"
           onChange={ onInputChange }
           required="true"
         />

@@ -13,8 +13,8 @@ code {
 }
 
 .createCardSection {
-  margin: 30px 60px;
   display: flex;
+  
 }
 
 label {
@@ -23,16 +23,50 @@ label {
   font-size: 20px;
 }
 
-.section-form {
+.section-form, .previewCard {
   width: 50%;
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f2fa
+  ;
 }
 
 .Card {
   border: 2px solid black;
   width: 400px;
+  height: 500px;
 }
 
-.Input {
-  width: 600px;
-  height: 12px;
+form {
+  margin: auto;
+}
+
+label{
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.Input{
+  height: 40px;
+  font-size: 25px;
+  color: indigo;
+  font-weight: bold;
+  font-style: oblique;
+  border: 1px solid gray;
+}
+
+.previewCard{
+background-color: #5E3DA4;
+}
+
+.attr-section label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#attr1-id, #attr2-id, #attr3-id{
+  width: 80%;
 }
