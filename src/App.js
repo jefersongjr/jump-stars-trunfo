@@ -60,6 +60,8 @@ class App extends React.Component {
     }
   }
 
+  hasTrunfo = () => savedCards.some((card) => card.cardTrunfo === true);
+
   onSaveButtonClick = () => {
     const { cardAttr3, cardImage, cardTrunfo, cardRare,
       cardName, cardDescription, cardAttr1, cardAttr2, savedCards } = this.state;
@@ -78,16 +80,10 @@ class App extends React.Component {
       cardAttr2: 0,
       cardAttr3: 0,
       cardImage: '',
-      cardTrunfo: false,
       cardRare: 'normal',
       savedCards: [...savedCards, card],
     });
   };
-
-  hasTrunfo = () => {
-    const { savedCards } = this.state;
-    savedCards.some((trunfo) => trunfo.cardTrunfo === 'true');
-  }
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2 } = this.state;
@@ -122,6 +118,7 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           cardRare={ cardRare }
         />
+
         <section className="cardDeck">
           { savedCards.map((card) => (
             <Card

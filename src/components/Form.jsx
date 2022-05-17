@@ -10,7 +10,7 @@ class Form extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardTrunfo, cardRare, onInputChange,
-      isSaveButtonDisabled, onSaveButtonClick, hasTrunfo } = this.props;
+      isSaveButtonDisabled, onSaveButtonClick, savedCards } = this.props;
     return (
       <section className="section-form">
         <form>
@@ -78,16 +78,19 @@ class Form extends React.Component {
             onInputChange={ onInputChange }
           />
 
-          <Checkbox
-            type="checkbox"
-            label="Super Trybe Trunfo"
-            id="super-trunfo"
-            name="cardTrunfo"
-            test="trunfo-input"
-            checked={ cardTrunfo }
-            onInputChange={ onInputChange }
-            hasTrunfo={ hasTrunfo }
-          />
+          { savedCards.some((card) => card.cardTrunfo === true)
+            ? <p>Você já tem um Super Trunfo em seu baralho</p>
+            : (
+              <Checkbox
+                type="checkbox"
+                label="Super Trybe Trunfo"
+                id="super-trunfo"
+                name="cardTrunfo"
+                test="trunfo-input"
+                checked={ cardTrunfo }
+                onInputChange={ onInputChange }
+              />
+            )}
 
           <Button
             isSaveButtonDisabled={ isSaveButtonDisabled }
@@ -105,14 +108,14 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
-  isSaveButtonDisabled: PropTypes.string.isRequired,
+  isSaveButtonDisabled: PropTypes.bool.isRequired,
   cardAttr1: PropTypes.number.isRequired,
   cardAttr2: PropTypes.number.isRequired,
   cardAttr3: PropTypes.number.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
-  hasTrunfo: PropTypes.func.isRequired,
+  savedCards: PropTypes.string.isRequired,
 };
 
 export default Form;
