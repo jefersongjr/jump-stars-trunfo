@@ -60,8 +60,6 @@ class App extends React.Component {
     }
   }
 
-  hasTrunfo = () => savedCards.some((card) => card.cardTrunfo === true);
-
   onSaveButtonClick = () => {
     const { cardAttr3, cardImage, cardTrunfo, cardRare,
       cardName, cardDescription, cardAttr1, cardAttr2, savedCards } = this.state;
@@ -89,9 +87,9 @@ class App extends React.Component {
     const { cardName, cardDescription, cardAttr1, cardAttr2 } = this.state;
     const { cardAttr3, cardImage, cardTrunfo, cardRare,
       isSaveButtonDisabled, savedCards } = this.state;
-    const { onInputChange, onSaveButtonClick, hasTrunfo } = this;
+    const { onInputChange, onSaveButtonClick } = this;
     return (
-      <section>
+      <section className="createCardSection">
         <Form
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -104,7 +102,6 @@ class App extends React.Component {
           onInputChange={ onInputChange }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ onSaveButtonClick }
-          hasTrunfo={ hasTrunfo }
           savedCards={ savedCards }
         />
 

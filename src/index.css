@@ -12,9 +12,15 @@ code {
     monospace;
 }
 
+.createCardSection {
+  margin: 30px 60px;
+  display: flex;
+}
+
 label {
   display: flex;
   flex-direction: column;
+  font-size: 20px;
 }
 
 .section-form {
@@ -24,4 +30,9 @@ label {
 .Card {
   border: 2px solid black;
   width: 400px;
+}
+
+.Input {
+  width: 600px;
+  height: 12px;
 }
