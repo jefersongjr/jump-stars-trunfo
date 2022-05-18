@@ -7,12 +7,29 @@ class Card extends React.Component {
       cardImage, cardRare, cardTrunfo } = this.props;
     return (
       <div className="Card">
-        <p data-testid="name-card">{ cardName }</p>
-        <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        <p data-testid="description-card">{ cardDescription }</p>
-        <p data-testid="attr1-card">{cardAttr1}</p>
-        <p data-testid="attr2-card">{ cardAttr2 }</p>
-        <p data-testid="attr3-card">{ cardAttr3 }</p>
+        <div id="nameDiv">
+          <p data-testid="name-card">{ cardName }</p>
+        </div>
+        <div id="imageDiv">
+          <img data-testid="image-card" src={ cardImage } alt={ cardName } />
+        </div>
+        <div id="descriptionDiv">
+          <p data-testid="description-card">{ cardDescription }</p>
+        </div>
+        <div id="atrrDiv">
+          <div className="attrBorder">
+            <p>Ataque: </p>
+            <p data-testid="attr1-card">{cardAttr1}</p>
+          </div>
+          <div className="attrBorder">
+            <p>Defesa: </p>
+            <p data-testid="attr2-card">{ cardAttr2 }</p>
+          </div>
+          <div className="attrBorder">
+            <p>Inteligência: </p>
+            <p data-testid="attr3-card">{ cardAttr3 }</p>
+          </div>
+        </div>
         <p data-testid="rare-card">{ cardRare }</p>
         {cardTrunfo
           ? <p data-testid="trunfo-card">Super Trunfo</p> : <p>{ cardRare }</p>}

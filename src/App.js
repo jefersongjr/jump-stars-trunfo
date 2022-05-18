@@ -83,6 +83,10 @@ class App extends React.Component {
     });
   };
 
+  showIndex = (x) => {
+    console.log(savedCards.findIndex(x));
+  }
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2 } = this.state;
     const { cardAttr3, cardImage, cardTrunfo, cardRare,
@@ -121,17 +125,27 @@ class App extends React.Component {
 
         <section className="cardDeck">
           { savedCards.map((card) => (
-            <Card
-              key={ card.cardName }
-              cardName={ card.cardName }
-              cardDescription={ card.cardDescription }
-              cardAttr1={ card.cardAttr1 }
-              cardAttr2={ card.cardAttr2 }
-              cardAttr3={ card.cardAttr3 }
-              cardImage={ card.cardImage }
-              cardTrunfo={ card.cardTrunfo }
-              cardRare={ card.cardRare }
-            />))}
+            <div key={ card.cardName }>
+              <Card
+                cardName={ card.cardName }
+                cardDescription={ card.cardDescription }
+                cardAttr1={ card.cardAttr1 }
+                cardAttr2={ card.cardAttr2 }
+                cardAttr3={ card.cardAttr3 }
+                cardImage={ card.cardImage }
+                cardTrunfo={ card.cardTrunfo }
+                cardRare={ card.cardRare }
+              />
+
+              <button
+                type="button"
+                onClick={ () => console.log(this.savedCards.Splice(savedCards.length - 1)) }
+              >
+                Apagar Card
+              </button>
+            </div>
+          ))}
+
         </section>
       </div>
     );
