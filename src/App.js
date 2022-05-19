@@ -139,7 +139,9 @@ class App extends React.Component {
 
               <button
                 type="button"
-                onClick={ () => console.log(this.savedCards.Splice(savedCards.length - 1)) }
+                onClick={
+                  () => console.log(this.savedCards.Splice(savedCards.length - 1))
+                }
               >
                 Apagar Card
               </button>
