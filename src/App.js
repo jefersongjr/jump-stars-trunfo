@@ -83,8 +83,12 @@ class App extends React.Component {
     });
   };
 
-  showIndex = (x) => {
-    console.log(savedCards.findIndex(x));
+  deleteCard = (x) => {
+    const { savedCards } = this.state;
+    const newDeck = savedCards.filter((card) => card !== x);
+    this.setState({
+      savedCards: newDeck,
+    });
   }
 
   render() {
@@ -139,11 +143,12 @@ class App extends React.Component {
 
               <button
                 type="button"
+                data-testid="delete-button"
                 onClick={
-                  () => console.log(this.savedCards.Splice(savedCards.length - 1))
+                  () => this.deleteCard(card)
                 }
               >
-                Apagar Card
+                Excluir
               </button>
             </div>
           ))}
